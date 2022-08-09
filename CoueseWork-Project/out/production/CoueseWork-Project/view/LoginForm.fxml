@@ -22,7 +22,7 @@
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="203.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="../view/assets/492851_admin_256x256.png" />
+            <Image url="assets/492851_admin_256x256.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtUserName" layoutX="106.0" layoutY="278.0" prefHeight="31.0" prefWidth="241.0" promptText="User Name">
