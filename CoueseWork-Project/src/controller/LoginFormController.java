@@ -14,11 +14,6 @@ public class LoginFormController {
     public TextField txtUserName;
     public Button btnLogIn;
 
-//    public void initialize() throws IOException {
-//        Stage stage = new Stage();
-//        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ServerApp.fxml"))));
-//        stage.show();
-//    }
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
 
