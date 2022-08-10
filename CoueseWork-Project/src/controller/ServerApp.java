@@ -5,13 +5,49 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 
 public class ServerApp {
     public Button btnSent;
     public TextArea txtAreaMsg;
     public TextField txtMsg;
 
+    String massage="", reply="";
+
+    public void initialize() {
+        CheckClient();
+    }
+
+    private void CheckClient() {
+    final int PORT=9000;
+
+        new Thread(()->{
+            try {
+                ServerSocket serverSocket = new ServerSocket(PORT);
+                txtAreaMsg.appendText("Server Start.!");
+                Socket localSocket = serverSocket.accept();
+                txtAreaMsg.appendText("\nClient Connected..!");
+                txtAreaMsg.appendText("\n.............................................\n");
+
+                DataOutputStream dataOutputStream=new DataOutputStream(localSocket.getOutputStream());
+                DataInputStream dataInputStream=new DataInputStream(localSocket.getInputStream());
+
+                while (massage.equals("Exit")){
+                    massage=dataInputStream.readUTF();
+                    txtAreaMsg.appendText("\nClient-01 : " + massage);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     public void btnSentOnAction(ActionEvent actionEvent) {
+
     }
 }
