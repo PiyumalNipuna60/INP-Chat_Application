@@ -30,7 +30,7 @@ public class ClientApp01 {
                 dataOutputStream=new DataOutputStream(socket.getOutputStream());
                 dataInputStream=new DataInputStream(socket.getInputStream());
 
-                while ("Exit".equals(txtMsg.getText())){
+                while (!massage.equals("Exit")){
                  massage=dataInputStream.readUTF();
                  txtAreaMsg.appendText("\nServer : " + massage);
                 }
