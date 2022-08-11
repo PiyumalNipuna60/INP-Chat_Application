@@ -14,7 +14,6 @@ public class LoginFormController {
     public TextField txtUserName;
     public Button btnLogIn;
 
-
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
 
         if ("g".equals(txtUserName.getText())){
