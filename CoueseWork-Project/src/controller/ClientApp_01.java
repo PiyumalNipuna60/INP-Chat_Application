@@ -9,7 +9,7 @@ import java.io.*;
 import java.net.Socket;
 
 public class ClientApp_01 {
-    final int PORT = 7000;
+    final int PORT = 9001;
     public Button btnSent;
     public TextField txtMsg;
     public TextArea txtAreaMsg;

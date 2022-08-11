@@ -16,14 +16,17 @@ public class ServerApp {
     public Button btnSent;
     public TextArea txtAreaMsg;
     public TextField txtMsg;
-    final int PORT=7000;
+    final int PORT=9001;
     DataOutputStream dataOutputStream;
 
     String massage="", reply="";
 
     public void initialize() {
+        CheckClient();
 
+    }
 
+    private void CheckClient(){
         new Thread(()->{
             try {
                 ServerSocket serverSocket = new ServerSocket(PORT);
@@ -32,7 +35,7 @@ public class ServerApp {
                 txtAreaMsg.appendText("\nClient Connected..!");
                 txtAreaMsg.appendText("\n.............................................\n");
 
-                 dataOutputStream=new DataOutputStream(localSocket.getOutputStream());
+                dataOutputStream=new DataOutputStream(localSocket.getOutputStream());
                 DataInputStream dataInputStream=new DataInputStream(localSocket.getInputStream());
 
                 while (!massage.equals("Exit")){
@@ -43,10 +46,6 @@ public class ServerApp {
                 e.printStackTrace();
             }
         }).start();
-    }
-
-    private void CheckClient(){
-
     }
 
     public void btnSentOnAction(ActionEvent actionEvent) {
