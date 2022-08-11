@@ -5,19 +5,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
-public class ClientApp01 {
-    final int PORT = 9000;
+public class ClientApp_01 {
+    final int PORT = 7000;
     public Button btnSent;
     public TextField txtMsg;
     public TextArea txtAreaMsg;
     Socket socket;
-    DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
+    DataInputStream dataInputStream;
 
     String massage = "", reply = "";
 
@@ -38,13 +36,14 @@ public class ClientApp01 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        }).start();
     }
 
     public void btnSentOnAction(ActionEvent actionEvent) throws IOException {
-        dataOutputStream.writeUTF(txtMsg.getText());
-        reply = txtMsg.getText();
-        txtAreaMsg.appendText("\nClient-01 : " + reply);
-        dataOutputStream.flush();
+            dataOutputStream.writeUTF(txtMsg.getText());
+            reply = txtMsg.getText();
+            txtAreaMsg.appendText("\nClient-01 : " + reply);
+            dataOutputStream.flush();
+
     }
 }

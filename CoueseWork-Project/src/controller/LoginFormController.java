@@ -17,30 +17,29 @@ public class LoginFormController {
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
 
-        if ("grou".equals(txtUserName.getText())){
+        if ("g".equals(txtUserName.getText())){
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ServerApp.fxml"))));
             stage.show();
         }
 
-        else if("kasun".equals(txtUserName.getText())) {
+        else if("k".equals(txtUserName.getText())) {
             Stage stage2 = new Stage();
             stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_01.fxml"))));
             stage2.show();
 
-        }else if("nipuna".equals(txtUserName.getText())){
+        }else if("n".equals(txtUserName.getText())){
             Stage stage2 = new Stage();
             stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_02.fxml"))));
             stage2.show();
 
-        }else if("sadun".equals(txtUserName.getText())){
+        }else if("s".equals(txtUserName.getText())){
             Stage stage2 = new Stage();
             stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_03.fxml"))));
             stage2.show();
         }else{
             new Alert(Alert.AlertType.WARNING,"User Name Is Not Validated..!").show();
         }
-
         txtUserName.clear();
     }
 }
