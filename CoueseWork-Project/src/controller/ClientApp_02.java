@@ -21,6 +21,7 @@ public class ClientApp_02 {
 
     String massage="", reply="";
     public void initialize() {
+        new Thread(()-> {
         try {
             socket = new Socket("localhost", PORT);
             txtAreaMsg.appendText("Accept Client..!");
@@ -36,7 +37,7 @@ public class ClientApp_02 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        }).start();
     }
 
     public void btnSentOnAction(ActionEvent actionEvent) throws IOException {
