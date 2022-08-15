@@ -46,7 +46,7 @@ public class ClientApp_02 {
     public void btnSentOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText());
         reply=txtMsg.getText();
-        txtAreaMsg.appendText("\nClient-01 : " + reply);
+        txtAreaMsg.appendText("\nClient-03 : " + reply);
         dataOutputStream.flush();
     }
 

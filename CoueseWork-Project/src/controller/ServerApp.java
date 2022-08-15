@@ -27,8 +27,6 @@ public class ServerApp {
     DataInputStream dataInputStream_three;
 
 
-    String massage="", reply="";
-
     public void initialize() {
         CheckClient();
 
@@ -36,6 +34,7 @@ public class ServerApp {
 
     private void CheckClient(){
         new Thread(()->{
+            String massage="", reply="";
             try {
                 ServerSocket serverSocket = new ServerSocket(9001);
                 txtAreaMsg.appendText("Server Start.!");
@@ -48,14 +47,19 @@ public class ServerApp {
 
                 while (!massage.equals("Exit")){
                     massage=dataInputStream_one.readUTF();
-                    txtAreaMsg.appendText("\nClient-01 : " + massage);
+                    txtAreaMsg.appendText("\nKasun : " + massage);
 
+                    dataOutputStream_two.writeUTF("Kasun : " + massage);
+                    dataOutputStream_three.writeUTF("Kasun : " + massage);
+
+                    dataOutputStream_two.flush();
+                    dataOutputStream_three.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }).start();
-    }
+}
 
     public void btnSentOnAction(ActionEvent actionEvent) {
     }
