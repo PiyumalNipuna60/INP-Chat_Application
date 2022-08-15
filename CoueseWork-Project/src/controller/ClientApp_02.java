@@ -46,4 +46,7 @@ public class ClientApp_02 {
         txtAreaMsg.appendText("\nClient-01 : " + reply);
         dataOutputStream.flush();
     }
+
+    public void AnotherChatOnAction(ActionEvent actionEvent) {
+    }
 }

@@ -12,4 +12,7 @@ public class ClientApp_03 {
 
     public void btnSentOnAction(ActionEvent actionEvent) {
     }
+
+    public void AnotherChatOnAction(ActionEvent actionEvent) {
+    }
 }
