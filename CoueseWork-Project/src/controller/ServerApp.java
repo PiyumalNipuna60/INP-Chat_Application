@@ -55,7 +55,7 @@ public class ServerApp {
                     dataOutputStream_two.flush();
                     dataOutputStream_three.flush();
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
@@ -84,7 +84,7 @@ public class ServerApp {
                     dataOutputStream_three.writeUTF("Nipuna : " + massage);
                     dataOutputStream_three.flush();
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
@@ -112,7 +112,7 @@ public class ServerApp {
                     dataOutputStream_two.writeUTF("Sadun : " + massage);
                     dataOutputStream_two.flush();
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
