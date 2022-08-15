@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -23,19 +24,28 @@ public class LoginFormController {
         }
 
         else if("k".equals(txtUserName.getText())) {
-            Stage stage2 = new Stage();
-            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_01.fxml"))));
-            stage2.show();
+            Parent scene;
+            Stage stage = new Stage();
+            stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_01.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
 
         }else if("n".equals(txtUserName.getText())){
-            Stage stage2 = new Stage();
-            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_02.fxml"))));
-            stage2.show();
+            Parent scene;
+            Stage stage = new Stage();
+            stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_02.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
 
         }else if("s".equals(txtUserName.getText())){
-            Stage stage2 = new Stage();
-            stage2.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ClientApp_03.fxml"))));
-            stage2.show();
+            Parent scene;
+            Stage stage = new Stage();
+            stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_03.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
         }else{
             new Alert(Alert.AlertType.WARNING,"User Name Is Not Validated..!").show();
         }
