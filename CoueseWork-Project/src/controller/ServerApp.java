@@ -59,6 +59,35 @@ public class ServerApp {
                 e.printStackTrace();
             }
         }).start();
+
+
+        //======================Client 02=================
+
+        new Thread(()->{
+            String massage="", reply="";
+            try {
+                ServerSocket serverSocket = new ServerSocket(9002);
+                txtAreaMsg.appendText("Server Start.!");
+                Socket localSocket = serverSocket.accept();
+                txtAreaMsg.appendText("\nClient-02 Connected..!");
+                txtAreaMsg.appendText("\n.............................................\n");
+
+                dataOutputStream_two=new DataOutputStream(localSocket.getOutputStream());
+                dataInputStream_two=new DataInputStream(localSocket.getInputStream());
+
+                while (!massage.equals("Exit")){
+                    massage=dataInputStream_two.readUTF();
+                    txtAreaMsg.appendText("\nClient-02 : " + massage);
+
+                    dataOutputStream_one.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_one.flush();
+                    dataOutputStream_three.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_three.flush();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
 }
 
     public void btnSentOnAction(ActionEvent actionEvent) {
