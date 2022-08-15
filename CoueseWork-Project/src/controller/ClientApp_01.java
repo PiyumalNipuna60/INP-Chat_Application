@@ -46,4 +46,8 @@ public class ClientApp_01 {
             dataOutputStream.flush();
 
     }
+
+    public void AnotherChatOnAction(ActionEvent actionEvent) {
+
+    }
 }
