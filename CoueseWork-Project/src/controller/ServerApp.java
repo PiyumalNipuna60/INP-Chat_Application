@@ -77,7 +77,7 @@ public class ServerApp {
 
                 while (!massage.equals("Exit")){
                     massage=dataInputStream_two.readUTF();
-                    txtAreaMsg.appendText("\nClient-02 : " + massage);
+                    txtAreaMsg.appendText("\nNipuna : " + massage);
 
                     dataOutputStream_one.writeUTF("Nipuna : " + massage);
                     dataOutputStream_one.flush();
@@ -97,7 +97,7 @@ public class ServerApp {
                 ServerSocket serverSocket = new ServerSocket(9003);
                 txtAreaMsg.appendText("Server Start.!");
                 Socket localSocket = serverSocket.accept();
-                txtAreaMsg.appendText("\nClient-02 Connected..!");
+                txtAreaMsg.appendText("\nClient-03 Connected..!");
                 txtAreaMsg.appendText("\n.............................................\n");
 
                 dataOutputStream_three=new DataOutputStream(localSocket.getOutputStream());
@@ -105,11 +105,11 @@ public class ServerApp {
 
                 while (!massage.equals("Exit")){
                     massage=dataInputStream_three.readUTF();
-                    txtAreaMsg.appendText("\nClient-02 : " + massage);
+                    txtAreaMsg.appendText("\nSadun : " + massage);
 
-                    dataOutputStream_one.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_one.writeUTF("Sadun : " + massage);
                     dataOutputStream_one.flush();
-                    dataOutputStream_two.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_two.writeUTF("Sadun : " + massage);
                     dataOutputStream_two.flush();
                 }
             } catch (IOException e) {
