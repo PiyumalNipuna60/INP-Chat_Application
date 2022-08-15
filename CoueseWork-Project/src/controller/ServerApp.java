@@ -88,6 +88,34 @@ public class ServerApp {
                 e.printStackTrace();
             }
         }).start();
+
+        //======================Client 03=================
+
+        new Thread(()->{
+            String massage="", reply="";
+            try {
+                ServerSocket serverSocket = new ServerSocket(9003);
+                txtAreaMsg.appendText("Server Start.!");
+                Socket localSocket = serverSocket.accept();
+                txtAreaMsg.appendText("\nClient-02 Connected..!");
+                txtAreaMsg.appendText("\n.............................................\n");
+
+                dataOutputStream_three=new DataOutputStream(localSocket.getOutputStream());
+                dataInputStream_three=new DataInputStream(localSocket.getInputStream());
+
+                while (!massage.equals("Exit")){
+                    massage=dataInputStream_three.readUTF();
+                    txtAreaMsg.appendText("\nClient-02 : " + massage);
+
+                    dataOutputStream_one.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_one.flush();
+                    dataOutputStream_two.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_two.flush();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
 }
 
     public void btnSentOnAction(ActionEvent actionEvent) {
