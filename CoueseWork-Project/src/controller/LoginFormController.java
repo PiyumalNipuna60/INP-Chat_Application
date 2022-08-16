@@ -30,6 +30,7 @@ public class LoginFormController {
             scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_01.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
+            txtUserName.clear();
 
         }else if("n".equals(txtUserName.getText())){
             Parent scene;
@@ -38,6 +39,7 @@ public class LoginFormController {
             scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_02.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
+            txtUserName.clear();
 
         }else if("s".equals(txtUserName.getText())){
             Parent scene;
@@ -46,8 +48,10 @@ public class LoginFormController {
             scene = FXMLLoader.load(getClass().getResource("../view/ClientApp_03.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
+            txtUserName.clear();
         }else{
             new Alert(Alert.AlertType.WARNING,"User Name Is Not Validated..!").show();
+            txtUserName.clear();
         }
         txtUserName.clear();
     }

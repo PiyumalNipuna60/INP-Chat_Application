@@ -36,6 +36,14 @@ public class ClientApp_01 {
                     massage = dataInputStream.readUTF();
                     txtAreaMsg.appendText("\nServer : " + massage);
                 }
+//                if (massage.equals("Exit")) {
+//                    dataOutputStream.writeUTF("Kasun left the chat");
+//
+//                    socket.close();
+//                    dataOutputStream.close();
+//                    dataInputStream.close();
+//                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
