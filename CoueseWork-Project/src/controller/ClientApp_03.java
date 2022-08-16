@@ -33,10 +33,10 @@ public class ClientApp_03 {
 
                 while (!massage.equals("Exit")){
                     massage=dataInputStream.readUTF();
-                    txtAreaMsg.appendText("\nServer : " + massage);
+                    txtAreaMsg.appendText("\n"+massage);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }).start();
     }
@@ -44,7 +44,7 @@ public class ClientApp_03 {
     public void btnSentOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         reply=txtMsg.getText();
-        txtAreaMsg.appendText("\nClient-02 : " + reply);
+        txtAreaMsg.appendText("\nClient-03 : " + reply);
         dataOutputStream.flush();
     }
 

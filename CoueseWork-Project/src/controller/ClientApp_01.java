@@ -32,7 +32,7 @@ public class ClientApp_01 {
 
                 while (!massage.equals("Exit")) {
                     massage = dataInputStream.readUTF();
-                    txtAreaMsg.appendText("\nServer : " + massage);
+                    txtAreaMsg.appendText("\n"+massage);
                 }
 //                if (massage.equals("Exit")) {
 //                    dataOutputStream.writeUTF("Kasun left the chat");
@@ -43,7 +43,7 @@ public class ClientApp_01 {
 //                }
 
             } catch (IOException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
             }
         }).start();
     }
