@@ -26,11 +26,9 @@ public class ClientApp_01 {
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", PORT);
-                txtAreaMsg.appendText("Accept Client..!");
-                txtAreaMsg.appendText("\n.............................................\n");
 
-                dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 dataInputStream = new DataInputStream(socket.getInputStream());
+                dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
                 while (!massage.equals("Exit")) {
                     massage = dataInputStream.readUTF();
@@ -51,7 +49,7 @@ public class ClientApp_01 {
     }
 
     public void btnSentOnAction(ActionEvent actionEvent) throws IOException {
-            dataOutputStream.writeUTF(txtMsg.getText());
+            dataOutputStream.writeUTF(txtMsg.getText().trim());
             reply = txtMsg.getText();
             txtAreaMsg.appendText("\nClient-01 : " + reply);
             dataOutputStream.flush();

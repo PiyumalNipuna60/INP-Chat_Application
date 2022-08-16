@@ -26,15 +26,16 @@ public class ServerApp {
     DataOutputStream dataOutputStream_three;
     DataInputStream dataInputStream_three;
 
+    String massage = "", reply = "";
+    String massage2 = "";
+    String massage3 = "";
 
     public void initialize() {
         CheckClient();
-
     }
 
     private void CheckClient() {
         new Thread(() -> {
-            String massage = "", reply = "";
             try {
                 ServerSocket serverSocket = new ServerSocket(9001);
                 txtAreaMsg.appendText("Server Start.!");
@@ -76,7 +77,6 @@ public class ServerApp {
         //======================Client 02=================
 
         new Thread(() -> {
-            String massage = "", reply = "";
             try {
                 ServerSocket serverSocket = new ServerSocket(9002);
                 txtAreaMsg.appendText("Server Start.!");
@@ -87,13 +87,13 @@ public class ServerApp {
                 dataOutputStream_two = new DataOutputStream(localSocket.getOutputStream());
                 dataInputStream_two = new DataInputStream(localSocket.getInputStream());
 
-                while (!massage.equals("Exit")) {
-                    massage = dataInputStream_two.readUTF();
-                    txtAreaMsg.appendText("\nNipuna : " + massage);
+                while (!massage2.equals("Exit")) {
+                    massage2 = dataInputStream_two.readUTF();
+                    txtAreaMsg.appendText("\nNipuna : " + massage2);
 
-                    dataOutputStream_one.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_one.writeUTF("Nipuna : " + massage2);
                     dataOutputStream_one.flush();
-                    dataOutputStream_three.writeUTF("Nipuna : " + massage);
+                    dataOutputStream_three.writeUTF("Nipuna : " + massage2);
                     dataOutputStream_three.flush();
                 }
             } catch (Exception e) {
@@ -104,7 +104,6 @@ public class ServerApp {
         //======================Client 03=================
 
         new Thread(() -> {
-            String massage = "", reply = "";
             try {
                 ServerSocket serverSocket = new ServerSocket(9003);
                 txtAreaMsg.appendText("Server Start.!");
@@ -115,13 +114,13 @@ public class ServerApp {
                 dataOutputStream_three = new DataOutputStream(localSocket.getOutputStream());
                 dataInputStream_three = new DataInputStream(localSocket.getInputStream());
 
-                while (!massage.equals("Exit")) {
-                    massage = dataInputStream_three.readUTF();
-                    txtAreaMsg.appendText("\nSadun : " + massage);
+                while (!massage3.equals("Exit")) {
+                    massage3 = dataInputStream_three.readUTF();
+                    txtAreaMsg.appendText("\nSadun : " + massage3);
 
-                    dataOutputStream_one.writeUTF("Sadun : " + massage);
+                    dataOutputStream_one.writeUTF("Sadun : " + massage3);
                     dataOutputStream_one.flush();
-                    dataOutputStream_two.writeUTF("Sadun : " + massage);
+                    dataOutputStream_two.writeUTF("Sadun : " + massage3);
                     dataOutputStream_two.flush();
                 }
             } catch (Exception e) {
