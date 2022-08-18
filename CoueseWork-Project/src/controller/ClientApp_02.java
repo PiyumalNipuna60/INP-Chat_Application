@@ -48,6 +48,7 @@ public class ClientApp_02 {
         reply=txtMsg.getText();
         txtAreaMsg.appendText("\nClient-02 : " + reply);
         dataOutputStream.flush();
+        txtMsg.clear();
 
     }
 

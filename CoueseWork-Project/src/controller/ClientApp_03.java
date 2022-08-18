@@ -46,6 +46,7 @@ public class ClientApp_03 {
         reply=txtMsg.getText();
         txtAreaMsg.appendText("\nClient-03 : " + reply);
         dataOutputStream.flush();
+        txtMsg.clear();
     }
 
     public void AnotherChatOnAction(ActionEvent actionEvent) throws IOException {

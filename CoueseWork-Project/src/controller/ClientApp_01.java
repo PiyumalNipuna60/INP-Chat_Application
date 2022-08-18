@@ -34,14 +34,6 @@ public class ClientApp_01 {
                     massage = dataInputStream.readUTF();
                     txtAreaMsg.appendText("\n"+massage);
                 }
-//                if (massage.equals("Exit")) {
-//                    dataOutputStream.writeUTF("Kasun left the chat");
-//
-//                    socket.close();
-//                    dataOutputStream.close();
-//                    dataInputStream.close();
-//                }
-
             } catch (IOException e) {
 //                e.printStackTrace();
             }
@@ -53,6 +45,7 @@ public class ClientApp_01 {
             reply = txtMsg.getText();
             txtAreaMsg.appendText("\nClient-01 : " + reply);
             dataOutputStream.flush();
+            txtMsg.clear();
 
     }
 
